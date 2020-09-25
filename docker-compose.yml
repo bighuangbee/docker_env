@@ -1,0 +1,33 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:5.7.31
+    restart: always
+    container_name: mysql
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123 #root初始密码
+
+  # 定时执行数据库备份
+  mysql-backup:
+    restart: always
+    build: mysql-backup
+    volumes:
+      - ./mysql-backup/cmd:/root/mysql/cmd
+      - ./mysql-backup/backup/:/root/mysql/backup/
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - 6380:6379
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/data:/data
+    command:
+      redis-server /usr/local/etc/redis/redis.conf --requirepass 123456

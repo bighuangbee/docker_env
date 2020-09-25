@@ -1,0 +1,4 @@
+#每分钟执行一次
+#* * * * * /root/mysql/cmd/mysql_dump_script.sh
+#每天凌晨2点
+00 02 * * * /root/mysql/cmd/mysql_dump_script.sh 
