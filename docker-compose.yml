@@ -17,8 +17,8 @@ services:
     restart: always
     build: mysql_backup
     volumes:
-      - ./mysql_backup/cmd:/root/mysql/cmd
       - /data/mysql_backup/:/root/mysql/backup/
+      - ./mysql_backup/cmd:/root/mysql/cmd
 
   redis:
     image: redis:latest
