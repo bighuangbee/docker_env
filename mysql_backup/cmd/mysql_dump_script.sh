@@ -3,7 +3,7 @@
 #保存备份x天数据
 number=30
 #备份保存路径
-backup_dir=/root/mysql/backup
+backup_dir=/data/mysql_backup/
 #日期
 dd=`date +%Y%m%d%H%M`
 #备份工具

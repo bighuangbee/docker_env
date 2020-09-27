@@ -6,6 +6,7 @@ chmod -R 644 .
 ####
 
 #### WSL无法修改文件系统的权限
+standard_init_linux.go:211: exec user process caused "no such file or directory"
 vim /etc/wsl.conf
 ```bash
 [automount]
@@ -16,12 +17,19 @@ options = "metadata"
 ####修改密码
 ```bash
 SET PASSWORD = '123456';
-SET PASSWORD FOR `root` = PASSWORD(`123456`);
+SET PASSWORD FOR 'root' = PASSWORD('123456');
 SET PASSWORD FOR 'root'@'localhost'=PASSWORD('123456');
+https://www.cnblogs.com/leaderjs/p/13206915.html
 ```
 
 
 #### windows编辑sh脚本后，无法在linux运行, 使用vim编辑，修改成unix格式
 ```bash
 :set ff=unix
+```
+
+### 修改redis密码
+```bash
+config get requirepass
+config set requirepass 123123
 ```

@@ -8,16 +8,18 @@ services:
       - /data/mysql:/var/lib/mysql
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: 123123 #root初始密码
+      MYSQL_ROOT_PASSWORD: 123456 #root初始密码
 
   # 定时执行数据库备份
   mysql_backup:
     restart: always
     build: mysql_backup
+    stdin_open: true
+    tty: true
     volumes:
-      - /data/mysql_backup/:/root/mysql/backup/
+      - /data/mysql_backup/:/data/mysql_backup/
       - ./mysql_backup/cmd:/root/mysql/cmd
 
   redis:
@@ -25,7 +27,7 @@ services:
     container_name: redis
     restart: always
     ports:
-      - 6380:6379
+      - 6379:6379
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
       - /data/redis:/data
