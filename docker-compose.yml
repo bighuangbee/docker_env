@@ -1,31 +1,35 @@
 version: '3.1'
 services:
-  mysql:
-    image: mysql:5.7.31
-    restart: always
-    container_name: mysql
+  mysql-db:
+    image: mysql:5.7.28
+#    restart: always
+    container_name: mysql-db
     volumes:
       - /data/mysql:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/my.cnf:/etc/my.cnf
     ports:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123456 #root初始密码
+    networks:
+      - mysql_net
 
   # 定时执行数据库备份
   mysql_backup:
-    restart: always
+#    restart: always
     build: mysql_backup
     stdin_open: true
     tty: true
     volumes:
       - /data/mysql_backup/:/data/mysql_backup/
       - ./mysql_backup/cmd:/root/mysql/cmd
+    networks:
+      - mysql_net
 
   redis:
     image: redis:latest
     container_name: redis
-    restart: always
+#    restart: always
     ports:
       - 6379:6379
     volumes:
@@ -33,3 +37,10 @@ services:
       - /data/redis:/data
     command:
       redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
+    external:
+      name: hidrone_net

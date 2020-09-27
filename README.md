@@ -33,3 +33,9 @@ https://www.cnblogs.com/leaderjs/p/13206915.html
 config get requirepass
 config set requirepass 123123
 ```
+
+#### 导入sql timestarmp=null出错
+```bash
+set global explicit_defaults_for_timestamp = ON;
+https://www.jianshu.com/p/523a0bf27095
+```
