@@ -2,7 +2,7 @@ version: '3.1'
 services:
   mysql-db:
     image: mysql:5.7.28
-#    restart: always
+    restart: always
     container_name: mysql-db
     volumes:
       - /data/mysql:/var/lib/mysql
@@ -16,7 +16,7 @@ services:
 
   # 定时执行数据库备份
   mysql_backup:
-#    restart: always
+    restart: always
     build: mysql_backup
     stdin_open: true
     tty: true
@@ -29,7 +29,7 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-#    restart: always
+    restart: always
     ports:
       - 6379:6379
     volumes:

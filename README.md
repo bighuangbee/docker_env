@@ -1,3 +1,8 @@
+####创建运行环境的网络，使运行环境与应用在同一网络下运行，不同的docker-compose编排可通过网络链接进行访问
+```bash
+docker network create hidrone_net
+```
+
 #### MySql配置文件不生效：config file '.cnf' is is ignored
 ```bash
 # 宿主机配置文件的权限过高，MySsql认为不安全
