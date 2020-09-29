@@ -21,8 +21,8 @@ then
     mkdir -p $backup_dir;
 fi
 
-#测试  mysqldump -h127.0.0.1 -P 3307 -uroot -p123456 a > /root/mysqlbackup/11.sql
-$tool -h127.0.0.1 -P 3307 -u $username -p$password  $database_name > $backup_dir/$database_name-$dd.sql
+#测试  mysqldump --column-statistics=0  -h 172.17.0.1 -P 3308 -uroot -p123456 hidrone > /root/mysqlbackup/11.sql
+$tool --column-statistics=0 -h172.17.0.1 -P 3308 -u $username -p$password  $database_name > $backup_dir/$database_name-$dd.sql
 
 #写创建备份日志
 echo "create $backup_dir/$database_name-$dd.dupm" >> $backup_dir/log.txt

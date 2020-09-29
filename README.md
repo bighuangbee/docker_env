@@ -9,7 +9,7 @@ dbHost : redis:3306
 
 #### MySql配置文件不生效：config file '.cnf' is is ignored
 ```bash
-# 宿主机配置文件的权限过高，MySsql认为不安全
+# 宿主机配置文件的权限过高，MySql认为不安全
 chmod -R 644 .
 ```
 ####
