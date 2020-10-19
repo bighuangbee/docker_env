@@ -2,7 +2,7 @@ version: '3.1'
 services:
   mysql-db:
     image: mysql:5.7.28
-    restart: always
+    #    restart: always
     container_name: mysql-db
     volumes:
       - /data/mysql:/var/lib/mysql
@@ -12,11 +12,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456 #root初始密码
     networks:
-      - mysql_net
+      - hidrone_env
 
   # 定时执行数据库备份
   mysql_backup:
-    restart: always
+    #    restart: always
     build: mysql_backup
     stdin_open: true
     tty: true
@@ -24,7 +24,7 @@ services:
       - /data/mysql_backup/:/data/mysql_backup/
       - ./mysql_backup/cmd:/root/mysql/cmd
     networks:
-      - mysql_net
+      - hidrone_env
 
   redis:
     image: redis:latest
@@ -38,9 +38,44 @@ services:
     command:
       redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
     networks:
-      - mysql_net
+      - hidrone_env
+
+  postgis-db:
+    image: kartoza/postgis:11.0-2.5
+    volumes:
+      - /data/postgis:/var/lib/postgresql
+      - ./postgresql/pg_hba.conf:/etc/postgresql/11/main/pg_hba.conf
+    environment:
+      # If you need to create multiple database you can add coma separated databases eg gis,data
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=123456
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      # Add extensions you need to be enabled by default in the DB. Default are the five specified below
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+    ports:
+      - 5432:5432
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+    networks:
+      - hidrone_env
+
+  postgis-dbbackups:
+    image: kartoza/pg-backup:12.0
+    volumes:
+      - /data/dbbackups:/backups
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=123456
+      - POSTGRES_PORT=5432
+    restart: on-failure
+    #    depends_on:
+    #      postgis-db:
+    #        condition: service_healthy
+    networks:
+      - hidrone_env
 
 networks:
-  mysql_net:
+  hidrone_env:
     external:
       name: hidrone_net
