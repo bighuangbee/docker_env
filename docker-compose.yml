@@ -5,10 +5,10 @@ services:
     #    restart: always
     container_name: mysql-db
     volumes:
-      - /data/mysql:/var/lib/mysql
+      - /hidrone/data/mysql:/var/lib/mysql
       - ./mysql/my.cnf:/etc/my.cnf
     ports:
-      - 3306:3306
+      - 23306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123456 #root初始密码
     networks:
@@ -21,7 +21,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /data/mysql_backup/:/data/mysql_backup/
+      - /hidrone/data/mysql_backup/:/data/mysql_backup/
       - ./mysql_backup/cmd:/root/mysql/cmd
     networks:
       - hidrone_env
@@ -31,10 +31,10 @@ services:
     container_name: redis
     restart: always
     ports:
-      - 6379:6379
+      - 26379:6379
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-      - /data/redis:/data
+      - /hidrone/data/redis:/data
     command:
       redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
     networks:
@@ -42,18 +42,20 @@ services:
 
   postgis-db:
     image: kartoza/postgis:11.0-2.5
+    privileged: true
     volumes:
-      - /data/postgis:/var/lib/postgresql
+      - /hidrone/data/postgresql:/var/lib/postgresql
       - ./postgresql/pg_hba.conf:/etc/postgresql/11/main/pg_hba.conf
     environment:
       # If you need to create multiple database you can add coma separated databases eg gis,data
       - POSTGRES_USER=postgres
       - POSTGRES_PASS=123456
       - ALLOW_IP_RANGE=0.0.0.0/0
+      - PGDATA:/var/lib/postgresql/data/pgdata
       # Add extensions you need to be enabled by default in the DB. Default are the five specified below
       - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
     ports:
-      - 5432:5432
+      - 25432:5432
     restart: on-failure
     healthcheck:
       test: "exit 0"
@@ -63,7 +65,7 @@ services:
   postgis-dbbackups:
     image: kartoza/pg-backup:12.0
     volumes:
-      - /data/dbbackups:/backups
+      - /hidrone/data/dbbackups:/backups
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASS=123456
