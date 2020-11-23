@@ -1,9 +1,10 @@
 version: '3.1'
 services:
   mysql-db:
-    image: mysql:5.7.28
-    #    restart: always
+    image: mysql:5.7.9 # GeneratedColumn
+    restart: always
     container_name: mysql-db
+    #command: mysqld set global explicit_defaults_for_timestamp = ON;
     volumes:
       - /hidrone/data/mysql:/var/lib/mysql
       - ./mysql/my.cnf:/etc/my.cnf
@@ -16,8 +17,8 @@ services:
 
   # 定时执行数据库备份
   mysql_backup:
-    #    restart: always
     build: mysql_backup
+    restart: always
     stdin_open: true
     tty: true
     volumes:
