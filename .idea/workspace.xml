@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4467f4da-67cb-49e0-95af-a8c998e85e24" name="Default Changelist" comment="" />
+    <list default="true" id="4467f4da-67cb-49e0-95af-a8c998e85e24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/etcd/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage_env/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/docker-env.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/docker-env.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/my.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql/my.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_backup/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql_backup/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_backup/cmd/crontab" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql_backup/cmd/crontab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_backup/cmd/mysql_dump_script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql_backup/cmd/mysql_dump_script.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_backup/cmd/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql_backup/cmd/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_backup/sources.list" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/mysql_backup/sources.list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgresql/pg_hba.conf" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/postgresql/pg_hba.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redis/redis.conf" beforeDir="false" afterPath="$PROJECT_DIR$/storage_env/redis/redis.conf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" path="D:\server\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1hzq7XWbG16KHMJeP6KHgy5VRYJ" />
   <component name="ProjectViewState">
@@ -17,20 +60,89 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../gopath/src/github.com/bighuangbee/hiDrone/proto" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\hidrone_command\controller\media" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\hidrone_command\controller" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\hidrone_command\callback\vod" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\build\hidrone_command\data" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\hidrone_command" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\proto" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\resource_service\model" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\build\hidrone_command\data\poi" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\build\hidrone_command" />
+      <recent name="D:\server\gopath\src\github.com\bighuangbee\hiDrone\hidrone_app\controller" />
+    </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601024107001">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603073415885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601024107001" />
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603073415885" />
+    <state x="669" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606394946659">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606394946659" />
+    <state x="847" y="379" key="EnvironmentVariablesDialog" timestamp="1603080215950">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="847" y="379" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603080215950" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606273814659">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606273814659" />
+    <state x="820" y="105" key="SettingsEditor" timestamp="1605768415248">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="820" y="105" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605768415248" />
+    <state x="681" y="261" width="648" height="524" key="StructurePopup" timestamp="1604490482835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="681" y="261" width="648" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1604490482835" />
+    <state x="813" y="183" width="1051" height="640" key="find.popup" timestamp="1606634847122">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="813" y="183" width="1051" height="640" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606634847122" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606461795751">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606461795751" />
   </component>
 </project>
