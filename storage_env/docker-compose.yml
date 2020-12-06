@@ -11,7 +11,7 @@ services:
     ports:
       - 23306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: 123456 #root初始密码
+      MYSQL_ROOT_PASSWORD: hiDrone12#! #root初始密码
     networks:
       - hidrone_env
 
@@ -37,7 +37,7 @@ services:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
       - /data/hidrone/redis:/data
     command:
-      redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
+      redis-server /usr/local/etc/redis/redis.conf --requirepass hiDrone12#!
     networks:
       - hidrone_env
 
