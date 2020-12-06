@@ -2,12 +2,12 @@ version: '3.1'
 services:
   mysql-db:
     image: mysql:5.7.9 # GeneratedColumn
+    # set global explicit_defaults_for_timestamp = ON;   mysql -uroot -h175.24.103.55 -p -P3306 -A
     restart: always
     container_name: mysql-db
-    #command: mysqld set global explicit_defaults_for_timestamp = ON;
     volumes:
       - /data/hidrone/mysql:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/my.cnf
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
     ports:
       - 23306:3306
     environment:
@@ -17,13 +17,20 @@ services:
 
   # 定时执行数据库备份
   mysql_backup:
-    build: mysql_backup
+    image: bighuangbee1/mysql_backup
+    container_name: mysql_backup
     restart: always
     stdin_open: true
     tty: true
+#    environment: #crontab无法读取环境变量，需要在脚本内修改
+#      - DB_USER="root"
+#      - DB_PASSWD="123456"
+#      - DB_HOST="172.17.0.1"
+#      - DB_PORT="23306"
+#      - DB_NAME="hidrone"
     volumes:
       - /data/hidrone/mysql_backup/:/data/mysql_backup/
-      - ./mysql_backup/cmd:/root/mysql/cmd
+      - ./mysql_backup/script/:/root/mysql_backup/
     networks:
       - hidrone_env
 

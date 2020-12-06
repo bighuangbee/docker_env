@@ -2,6 +2,6 @@
 
 /usr/sbin/service cron start
 
-crontab /root/mysql/cmd/crontab
+crontab /root/mysql_backup/crontab
 
 tail -f /dev/null

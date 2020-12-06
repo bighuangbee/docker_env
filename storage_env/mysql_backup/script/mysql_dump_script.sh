@@ -1,4 +1,6 @@
 #!/bin/bash
+. /etc/profile
+. ~/.barshrc
 
 #保存备份x天数据
 number=30
@@ -8,12 +10,13 @@ backup_dir=/data/mysql_backup/
 dd=`date +%Y%m%d%H%M`
 #备份工具
 tool=mysqldump
-#用户名
-username=root
-#密码
-password=123456
-#将要备份的数据库
-database_name=a
+dbuser=root
+dbpasswd=123456
+dbname=hidrone
+dbhost=172.17.0.1
+dbport=23306
+
+echo $dbname;
 
 #如果文件夹不存在则创建
 if [ ! -d $backup_dir ];
@@ -21,11 +24,11 @@ then
     mkdir -p $backup_dir;
 fi
 
-#测试  mysqldump --column-statistics=0  -h 172.17.0.1 -P 3308 -uroot -p123456 hidrone > /root/mysqlbackup/11.sql
-$tool --column-statistics=0 -h172.17.0.1 -P 3308 -u $username -p$password  $database_name > $backup_dir/$database_name-$dd.sql
+#测试  mysqldump --column-statistics=0 --opt --single-transaction --master-data=2 -R -h 172.17.0.1 -P 3308 -uroot -p123456 hidrone > /root/mysqlbackup/11.sql
+$tool --column-statistics=0 --opt --single-transaction --master-data=2 -R --no-data -h$dbhost -P $dbport -u $dbuser -p$dbpasswd  $dbname > $backup_dir/$dbname-$dd.sql
 
 #写创建备份日志
-echo "create $backup_dir/$database_name-$dd.dupm" >> $backup_dir/log.txt
+echo "create $backup_dir/$dbname-$dd.dupm" >> $backup_dir/log.txt
 
 #找出需要删除的备份
 delfile=`ls -l -crt  $backup_dir/*.sql | awk '{print $9 }' | head -1`
