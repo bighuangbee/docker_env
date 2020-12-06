@@ -44,7 +44,7 @@ services:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
       - /data/hidrone/redis:/data
     command:
-      redis-server /usr/local/etc/redis/redis.conf --requirepass hiDrone12#!
+      redis-server /usr/local/etc/redis/redis.conf --requirepass 123456
     networks:
       - hidrone_env
 

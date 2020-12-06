@@ -8,8 +8,8 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /data/minio/data:/data
-      - /data/minio/config:/root/.minio
+      - /data/hidrone/minio/data:/data
+      - /data//hidrone/minio/config:/root/.minio
     logging:
       driver: json-file
       options:
@@ -28,7 +28,7 @@ services:
     ports:
       - 9001:80
     volumes:
-      - /data/reiszer_cache:/data
+      - /data/hidrone/reiszer_cache:/data
     logging:
       driver: "json-file"
       options:
