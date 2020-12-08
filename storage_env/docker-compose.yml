@@ -7,7 +7,7 @@ services:
     container_name: mysql-db
     volumes:
       - /data/hidrone/mysql:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/my.cnf:/etc/my.cnf
     ports:
       - 23306:3306
     environment:

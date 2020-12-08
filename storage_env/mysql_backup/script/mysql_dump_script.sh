@@ -1,6 +1,5 @@
 #!/bin/bash
 . /etc/profile
-. ~/.barshrc
 
 #保存备份x天数据
 number=30
