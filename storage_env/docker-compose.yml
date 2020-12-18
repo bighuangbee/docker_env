@@ -2,10 +2,11 @@ version: '3.1'
 services:
   mysql-db:
     image: mysql:5.7.9 # GeneratedColumn
-    # set global explicit_defaults_for_timestamp = ON;   mysql -uroot -h175.24.103.55 -p -P3306 -A
+    # set global explicit_defaults_for_timestamp = ON;
     restart: always
     container_name: mysql-db
     volumes:
+      - /data/hidrone/mysql_sql:/root/sql #方便更新sql
       - /data/hidrone/mysql:/var/lib/mysql
       - ./mysql/my.cnf:/etc/my.cnf
     ports:
