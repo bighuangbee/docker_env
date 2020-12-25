@@ -13,11 +13,11 @@ services:
     logging:
       driver: json-file
       options:
-        max-size: "200M"
+        max-size: "2000M"
         max-file: "10"
     environment:
       MINIO_ACCESS_KEY: admin
-      MINIO_SECRET_KEY: hidroneoss123.
+      MINIO_SECRET_KEY: hiDroneoss2020.
     command: server /data
 
   minio_resizer:
