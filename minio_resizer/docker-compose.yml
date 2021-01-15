@@ -6,7 +6,7 @@ services:
     container_name: minio
     restart: always
     ports:
-      - 9000:9000
+      - 8802:9000
     volumes:
       - /data/hidrone/minio/data:/data
       - /data//hidrone/minio/config:/root/.minio

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #保存备份x天数据
-number=30
+number=60
 #备份保存路径
 backup_dir=/data/mysql_backup/
 #日期
@@ -11,8 +11,8 @@ tool=mysqldump
 dbuser=root
 dbpasswd=hiDronedb2020.
 dbname=hidrone
-dbhost=172.17.0.1
-dbport=3308
+dbhost=172.0.0.1
+dbport=23306
 
 echo $dbname;
 
