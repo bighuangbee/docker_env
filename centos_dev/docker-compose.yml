@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  centos_dev:
+    build: ./
+    networks:
+      - app_net
+    volumes:
+      - /Users/bighuangbee/server/go:/root/workspace/
+      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/libs:/root/rtc_recognize/libs #映射依赖库到固定目录
+      - /data/hidrone/recognize/face:/data/face
+    tty: true
+
+volumes:
+  logs-volume:
+networks:
+  app_net:
+    external:
+      name: hidrone_net
