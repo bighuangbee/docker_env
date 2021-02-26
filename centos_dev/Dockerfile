@@ -30,7 +30,7 @@ RUN ln -s /root/rtc_recognize/libs/OpenBLAS/lib/libopenblas.so  /usr/lib/libblas
 RUN ln -s /root/rtc_recognize/libs/OpenBLAS/lib/liblapack.so.3 /usr/lib/liblapack.so.3
 
 #人脸识别
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/rtc_recognize/libs/face_recognize/lib
+ENV LD_LIBRARY_PATH=$LD_LIBRARY/root/rtc_recognize/libs/usr/lib/libblas.so.3/rtc_warper_PATH:/root/rtc_recognize/libs/face_recognize/lib
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/rtc_recognize/libs/OpenBLAS/lib
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
 
@@ -46,4 +46,8 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/rtc_recognize/libs/ITS/lib
 
 #RTC Recording解码
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/rtc_recognize/libs/ffmpeg4.3/lib
+#ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/rtc_recognize/libs/rtc_warper
 
+
+COPY opencv4.pc /usr/local/lib/pkgconfig/opencv4.pc
+#ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
