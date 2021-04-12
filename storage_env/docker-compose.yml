@@ -13,8 +13,8 @@ services:
       - 23306:3306
     environment:
       MYSQL_ROOT_PASSWORD: hiDronedb2020. #root初始密码 hiDrone12#!
-    networks:
-      - hidrone_env
+#    networks:
+#      - hidrone_env
 
   # 定时执行数据库备份
   mysql_backup:
@@ -46,8 +46,8 @@ services:
       - /data/hidrone/redis:/data
     command:
       redis-server /usr/local/etc/redis/redis.conf --requirepass hiDronedb2020.
-    networks:
-      - hidrone_env
+#    networks:
+#      - hidrone_env
 
 
 networks:
