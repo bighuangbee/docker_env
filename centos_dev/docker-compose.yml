@@ -18,6 +18,7 @@ services:
       - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
       - /data/hidrone/recognize:/data/recognize
     tty: true
+    mac_address: 02:42:ac:12:00:02
 
 volumes:
   logs-volume:
