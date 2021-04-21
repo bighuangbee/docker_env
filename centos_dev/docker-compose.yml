@@ -7,18 +7,19 @@ services:
     networks:
       - app_net
     volumes:
-      - /Users/bighuangbee/server/go:/root/workspace/ # 项目代码
-#      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/libs:/root/rtc_recognize/libs
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/ITS/libs/ITS:/root/rtc_recognize/libs/ITS
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
-      - /Users/bighuangbee/server/go/hidrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
-      - /data/hidrone/recognize:/data/recognize
+      - ~/server/go:/root/workspace/ # 项目代码
+      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
+      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
+      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
+      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
+      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/ITS:/root/rtc_recognize/libs/ITS
+      - ~/server/go/hiDrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
+      - ~/server/go/hiDrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
+      - /data/hiDrone/recognize:/data/recognize
     tty: true
     mac_address: 02:42:ac:12:00:02
+    ports:
+      - 6060:6060
 
 volumes:
   logs-volume:

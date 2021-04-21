@@ -12,7 +12,7 @@ services:
     ports:
       - 23306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: hidronedb2020. #root初始密码 hiDrone12#!
+      MYSQL_ROOT_PASSWORD: hiDronedb2020. #root初始密码 hiDrone12#!
     networks:
       - hidrone_env
 
