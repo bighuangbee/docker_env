@@ -7,14 +7,14 @@ services:
     networks:
       - app_net
     volumes:
-      - ~/server/go:/root/workspace/ # 项目代码
-      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
-      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
-      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
-      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
-      - ~/server/go/hiDrone/srv/recognize_service/rtc/libs/ITS:/root/rtc_recognize/libs/ITS
-      - ~/server/go/hiDrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
-      - ~/server/go/hiDrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
+      - ~/code:/root/workspace/ # 项目代码
+      - ~/code/hidrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
+      - ~/code/hidrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
+      - ~/code/hidrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
+      - ~/code/hidrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
+      - ~/code/hidrone/srv/recognize_service/rtc/libs/ITS:/root/rtc_recognize/libs/ITS
+      - ~/code/hidrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
+      - ~/code/hidrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
       - /data/hiDrone/recognize:/data/recognize
     tty: true
     mac_address: 02:42:ac:12:00:02
@@ -26,4 +26,4 @@ volumes:
 networks:
   app_net:
     external:
-      name: hidrone_net
+      name: hidrone_net_rtc

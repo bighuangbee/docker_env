@@ -5,39 +5,18 @@ services:
     entrypoint: /usr/local/bin/etcd
     restart: always
     command:
-      - '--name=etcd'
-      - '--data-dir=/etcd_data'
-      - '--initial-advertise-peer-urls=http://192.168.80.35:2380'
-      - '--listen-peer-urls=http://0.0.0.0:2380'
-      - '--listen-client-urls=http://0.0.0.0:2379'
-      - '--advertise-client-urls=http://192.168.80.35:2379'
-      - '--initial-cluster-token=dev#etcd' # 节点的token值
-      - '--heartbeat-interval=250'
-      - '--election-timeout=1250'
-      - '--initial-cluster=etcd=http://192.168.80.35:2380'
-#      - '--initial-cluster=etcd=http://etcd:2380,etcd2=http://etcd2:2380'
-      - '--initial-cluster-state=new'
+      - "--name=etcd"
+      - "--data-dir=/etcd_data"
+      - "--initial-advertise-peer-urls=http://${ETCD_EXTERN_HOST}:2380"
+      - "--listen-peer-urls=http://0.0.0.0:2380"
+      - "--listen-client-urls=http://0.0.0.0:2379"
+      - "--advertise-client-urls=http://${ETCD_EXTERN_HOST}:2379"
+      - "--initial-cluster-token=dev etcd" # 节点的token值
+      - "--heartbeat-interval=250"
+      - "--election-timeout=1250"
+      - "--initial-cluster=etcd=http://${ETCD_EXTERN_HOST}:2380"
+      - "--initial-cluster-state=new"
     ports:
-      - 2379:2379
+      - ${ETCD_EXTERN_CLIENT_PORT}:2379
     volumes:
-      - ~/data/hidrone/etcd/data:/etcd_data
-
-#  etcd2:
-#    image: "quay.io/coreos/etcd:v3.4.10"
-#    entrypoint: /usr/local/bin/etcd
-#    command:
-#      - '--name=etcd2'
-#      - '--data-dir=/etcd_data'
-#      - '--initial-advertise-peer-urls=http://etcd2:2380'
-#      - '--listen-peer-urls=http://0.0.0.0:2380'
-#      - '--listen-client-urls=http://0.0.0.0:2379'
-#      - '--advertise-client-urls=http://etcd2:2379'
-#      - '--initial-cluster-token=dev#etcd'
-#      - '--heartbeat-interval=250'
-#      - '--election-timeout=1250'
-#      - '--initial-cluster=etcd=http://etcd:2380,etcd2=http://etcd2:2380'
-#      - '--initial-cluster-state=new'
-#    ports:
-#      - 22379:2379
-#    volumes:
-#      - /hidrone/data/etcd2/data:/etcd_data
+      - ${ETCD_EXTERN_PATH}:/etcd_data

@@ -1,49 +1,49 @@
 version: '3.1'
 services:
-  mysql-db:
+  mysql_master:
     image: mysql:5.7.9 # GeneratedColumn
-    # set global explicit_defaults_for_timestamp = ON;
     restart: always
-    container_name: mysql-db
+    container_name: mysql_master
     volumes:
-      - /data/hidrone/mysql_sql:/root/sql #方便更新sql
-      - /data/hidrone/mysql:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/my.cnf
+#      - ${MYSQL_MASTER_EXTERN_PATH}:/var/lib/mysql  # mac映射到宿主机会报错
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+#      - ./mysql/sql_source:/docker-entrypoint-initdb.d
     ports:
-      - 23306:3306
+      - ${MYSQL_MASTER_EXTERN_PORT}:3306
     environment:
       MYSQL_ROOT_PASSWORD: hiDronedb2020. #root初始密码 hiDrone12#!
+      TZ: Asia/Shanghai
     networks:
       - hidrone_env
 
   # 定时执行数据库备份
-  mysql_backup:
-    image: bighuangbee1/mysql_backup
-    container_name: mysql_backup
-    restart: always
-    stdin_open: true
-    tty: true
-#    environment: #crontab无法读取环境变量，需要在脚本内修改
-#      - DB_USER="root"
-#      - DB_PASSWD="123456"
-#      - DB_HOST="172.17.0.1"
-#      - DB_PORT="23306"
-#      - DB_NAME="hidrone"
-    volumes:
-      - /data/hidrone/mysql_backup/:/data/mysql_backup/
-      - ./mysql_backup/script/:/root/mysql_backup/
-    networks:
-      - hidrone_env
+#  mysql_backup:
+#    image: bighuangbee1/mysql_backup
+#    container_name: mysql_backup
+#    restart: always
+#    stdin_open: true
+#    tty: true
+##    environment: #crontab无法读取环境变量，需要在脚本内修改
+##      - DB_USER="root"
+##      - DB_PASSWD="123456"
+##      - DB_HOST="172.17.0.1"
+##      - DB_PORT="23306"
+##      - DB_NAME="hidrone"
+#    volumes:
+#      - /data/hidrone/mysql_backup/:/data/mysql_backup/
+#      - ./mysql_backup/script/:/root/mysql_backup/
+#    networks:
+#      - hidrone_env
 
-  redis:
+  redis_master:
     image: redis:6.0
-    container_name: redis
+    container_name: redis_master
     restart: always
     ports:
-      - 26379:6379
+      - ${REDIS_MASTER_EXTERN_PORT}:6379
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-      - /data/hidrone/redis:/data
+      - ${REDIS_MASTER_EXTERN_PATH}:/data
     command:
       redis-server /usr/local/etc/redis/redis.conf --requirepass hiDronedb2020.
     networks:

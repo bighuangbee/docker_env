@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    networks:
+      - hidrone_net
+    ports:
+      - ${ZIPKIN_HTTP_PORT_MAP_TO}:9411
+
+networks:
+  hidrone_net:
+    external:
+      name: hidrone_net
