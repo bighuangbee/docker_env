@@ -7,16 +7,19 @@ services:
     networks:
       - app_net
     volumes:
-      - ~/code:/root/workspace/ # 项目代码
-      - ~/code/hidrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
-      - ~/code/hidrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
-      - ~/code/hidrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
-      - ~/code/hidrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
-      - ~/code/hidrone/srv/recognize_service/rtc/libs/ITS:/root/rtc_recognize/libs/ITS
-      - ~/code/hidrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
-      - ~/code/hidrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
+      - ${WORKSPACE_CODE}:/root/workspace/ # 项目代码
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/rtc/libs/ffmpeg4.3:/root/rtc_recognize/libs/ffmpeg4.3 #映射依赖库到固定目录
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/rtc/libs/rtc_recorder:/root/rtc_recognize/libs/rtc_recorder #映射依赖库到固定目录
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/rtc/libs/rtc_warper:/root/rtc_recognize/libs/rtc_warper #映射依赖库到固定目录
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/rtc/libs/openvino_2020.4.287:/root/rtc_recognize/libs/openvino_2020.4.287
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/rtc/libs/ITS:/root/rtc_recognize/libs/ITS
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/face/libs/face_recognize:/root/rtc_recognize/libs/face_recognize
+      - ${WORKSPACE_CODE}/hidrone/srv/recognize_service/face/libs/OpenBLAS:/root/rtc_recognize/libs/OpenBLAS
       - /data/hiDrone/recognize:/data/recognize
     tty: true
+    environment:
+      MICRO_REGISTRY: ${MICRO_REGISTRY}
+      MICRO_REGISTRY_ADDRESS: ${MICRO_REGISTRY_ADDRESS}
     mac_address: 02:42:ac:12:00:02
     ports:
       - 6060:6060

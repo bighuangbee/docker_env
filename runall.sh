@@ -5,7 +5,7 @@ BASE_PATH="/data/hidrone"
 docker network create hidrone_net
 
 #ETCD
-export ETCD_EXTERN_HOST=192.168.208.128
+export ETCD_EXTERN_HOST=192.168.80.103
 export ETCD_EXTERN_CLIENT_PORT=2379
 export ETCD_EXTERN_PATH=$BASE_PATH/etcd/data
 
@@ -15,6 +15,10 @@ docker-compose -f etcd/docker-compose.yml up -d
 
 #EMQX
 docker-compose -f emqx/docker-compose.yml up -d
+
+#Zipkin
+export ZIPKIN_HTTP_PORT=9411
+docker-compose -f zipkin/docker-compose.yml up -d
 
 #MySql
 #mac注释掉storage_env/docker-compose.yml volumes
