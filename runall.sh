@@ -10,15 +10,17 @@ export ETCD_EXTERN_CLIENT_PORT=2379
 export ETCD_EXTERN_PATH=$BASE_PATH/etcd/data
 
 mkdir -p $ETCD_EXTERN_PATH && chmod -R 700 $ETCD_EXTERN_PATH
-
 docker-compose -f etcd/docker-compose.yml up -d
+
 
 #EMQX
 docker-compose -f emqx/docker-compose.yml up -d
 
+
 #Zipkin
 export ZIPKIN_HTTP_PORT=9411
 docker-compose -f zipkin/docker-compose.yml up -d
+
 
 #MySql
 #mac注释掉storage_env/docker-compose.yml volumes
