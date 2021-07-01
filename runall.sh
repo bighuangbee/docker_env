@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_PATH="/data/hidrone"
+BASE_PATH="~/data/hidrone"
 
 docker network create hidrone_net
 
@@ -16,7 +16,6 @@ docker-compose -f etcd/docker-compose.yml up -d
 #EMQX
 docker-compose -f emqx/docker-compose.yml up -d
 
-
 #Zipkin
 export ZIPKIN_HTTP_PORT=9411
 docker-compose -f zipkin/docker-compose.yml up -d
@@ -24,7 +23,6 @@ docker-compose -f zipkin/docker-compose.yml up -d
 
 #MySql
 #mac注释掉storage_env/docker-compose.yml volumes
-$BASE_PATH
 export MYSQL_MASTER_EXTERN_PORT=23306
 export MYSQL_MASTER_EXTERN_PATH=$BASE_PATH/mysql/data/
 

@@ -1,3 +1,7 @@
+### 预览地址
+#### 原图： http://oss.hidrone.cn:8802/hidronedev/test/car_1.jpg
+#### 动态缩略图： http://oss.hidrone.cn:8803/200x200/hidronedev/test/car_1.jpg
+
 
 ###dashboad无法修改密码
 ```bash
